@@ -11,9 +11,9 @@ export default class ChatApp {
     constructor(io: Server) {
         io.on('connection', (socket: Socket) => {
             console.log("We have a new connection - " + socket.id);
-            socket.on('join', ({ userName, roomName }) => {
+            socket.on('join', ({ userName, roomName }, cb) => {
                 console.log("join request", { userName, roomName });
-                this.join(userName, roomName, socket);
+                this.join(userName, roomName, socket, cb);
             });
 
             socket.on('sendMessage', ({ message, roomName }) => {
@@ -39,11 +39,12 @@ export default class ChatApp {
 
     }
 
-    join(userName: string, roomName: string, socket: Socket) {
+    join(userName: string, roomName: string, socket: Socket, cb: Function) {
         try {
             if (!userName || !roomName) {
                 console.log("bad request");
                 socket.emit('error', { message: 'bad request' });
+                cb(false);
             }
             let room = this.rooms.find(r => r.name === roomName);
             if (!room) {
@@ -56,9 +57,11 @@ export default class ChatApp {
                 socket.join(roomName);
                 socket.emit('message', { from: 'admin', text: 'Welcome to room' });
                 socket.broadcast.to(roomName).emit('message', { text: userName + ' has joined.', from: 'admin' });
+                cb(true);
             } else {
                 console.log("cannot add");
-                socket.emit('error', new Error('User already exists'));
+                socket.emit('error', { message: 'user already exists' });
+                cb(false);
             }
 
         } catch (error) {
