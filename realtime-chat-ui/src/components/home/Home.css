@@ -1,0 +1,16 @@
+#home{
+    padding: 0.5rem;
+    text-align: center;
+}
+
+#home #app-name {
+    margin-top: 2rem;
+}
+
+#home input[name=name] {
+    margin-top: 5rem;
+
+}
+#home input[name=roomName] {
+    margin-top: 0.5rem;
+}

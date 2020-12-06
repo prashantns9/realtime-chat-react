@@ -14,7 +14,11 @@ function Chat() {
 
   useEffect(() => {
     socket = io(SERVER_URI);
-    socket.emit('join', { userName, roomName });
+    socket.emit('join', { userName, roomName }, (joined) => {
+      if (!joined) {
+        history.push("/");
+      }
+    });
     return () => {
       socket.disconnect();
       //socket.off();
@@ -27,14 +31,16 @@ function Chat() {
       console.log("Previos msgs " + JSON.stringify(messages));
       setMessages([...messages, message]);
     });
-    socket.on('error', error => {
-      console.log(error);
-    });
-
     return () => {
       //setMessages([]);
     }
   }, [messages]);
+
+  useEffect(() => {
+    socket.on('error', error => {
+      alert(error.message);
+    });
+  });
 
   function renderMessages() {
     let messageBoxes = [];

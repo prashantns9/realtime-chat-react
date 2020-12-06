@@ -9,18 +9,18 @@ import Home from './components/home/Home';
 
 function App() {
 	return (
-		<Router>
-			<h1> App </h1>
-
-			<Switch>
-				<Route path="/" exact>
-					<Home />
-				</Route>
-				<Route path="/chat/:roomName/:userName">
-					<Chat />
-				</Route>
-			</Switch>
-		</Router>
+		<div className="container">
+			<Router>
+				<Switch>
+					<Route path="/" exact>
+						<Home />
+					</Route>
+					<Route path="/chat/:roomName/:userName">
+						<Chat />
+					</Route>
+				</Switch>
+			</Router>
+		</div>
 	);
 }
 
