@@ -1,9 +1,14 @@
+/** Has a mobile first approach.
+ ** Desktop code in media query 
+** /
+
+/** Variables */
 :root {
-  --primary: #35385E;
+  --primary: #35385e;
   --secondary: #1e90ff;
   --white: #ffffff;
   --black: #000000;
-  --gray: #cccccc;
+  --gray: #b6b6b6;
 
   --button-border-radius: 0.3rem;
   --button-padding: 0.5rem;
@@ -11,20 +16,18 @@
 
   --input-border-radius: 0.3rem;
   --input-padding: 0.3rem 0.3rem 0.2rem 0.2rem;
+
+  --label-font-size: 12px;
+
+  --footer-font-size: 12px;
 }
 
+/** Globals */
 body {
   margin: 0;
   padding: 0;
   font-family: Helvetica, Sans-Serif;
-  background-color: var(--primary) ;
-}
-
-.container { 
-  height: 90vh;
-  width: 40%;
-  margin: 5vh auto auto auto;
-  background-color: var(--white);
+  background-color: var(--primary);
 }
 
 input {
@@ -32,12 +35,16 @@ input {
   border-radius: var(--input-border-radius);
 }
 
+label {
+  font-size: var(--label-font-size);
+  display: block;
+  text-align: left;
+}
+
 button {
   border-radius: var(--button-border-radius);
   padding: var(--button-padding);
-  margin: var(--button-margin);
 }
-
 button.primary {
   color: var(--white);
   background-color: var(--primary);
@@ -46,12 +53,132 @@ button.secondary {
   color: var(--white);
   background-color: var(--secondary);
 }
+button:disabled {
+  color: var(--white);
+  background-color: var(--gray);
+}
 
+footer {
+  font-size: var(--footer-font-size);
+}
 
-@media only screen and (max-width: 748px) {
+.container {
+  width: auto;
+  height: 100vh;
+  margin: auto;
+  background-color: var(--white);
+}
+
+.text-center {
+  text-align: center;
+}
+
+.primary {
+  color: var(--primary);
+}
+
+.secondary {
+  color: var(--secondary);
+}
+
+/** Grid 
+ ** Todo - Offset 
+ */
+* {
+  box-sizing: border-box;
+}
+
+.row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+[class*="col-"] {
+  float: left;
+  padding: 8px;
+}
+
+/* For Mobile first Grid: */
+.col-1 {
+  width: 8.33%;
+}
+.col-2 {
+  width: 16.66%;
+}
+.col-3 {
+  width: 25%;
+}
+.col-4 {
+  width: 33.33%;
+}
+.col-5 {
+  width: 41.66%;
+}
+.col-6 {
+  width: 50%;
+}
+.col-7 {
+  width: 58.33%;
+}
+.col-8 {
+  width: 66.66%;
+}
+.col-9 {
+  width: 75%;
+}
+.col-10 {
+  width: 83.33%;
+}
+.col-11 {
+  width: 91.66%;
+}
+.col-12 {
+  width: 100%;
+}
+
+/** Desktop */
+@media only screen and (min-width: 768px) {
   .container {
-    width: auto;
-    height: 100vh;
-    margin: auto;
+    height: 90vh;
+    width: 40%;
+    margin: 5vh auto auto auto;
+  }
+  /* For desktop: */
+  .col-lg-1 {
+    width: 8.33%;
+  }
+  .col-lg-2 {
+    width: 16.66%;
+  }
+  .col-lg-3 {
+    width: 25%;
+  }
+  .col-lg-4 {
+    width: 33.33%;
+  }
+  .col-lg-5 {
+    width: 41.66%;
+  }
+  .col-lg-6 {
+    width: 50%;
+  }
+  .col-lg-7 {
+    width: 58.33%;
+  }
+  .col-lg-8 {
+    width: 66.66%;
+  }
+  .col-lg-9 {
+    width: 75%;
+  }
+  .col-lg-10 {
+    width: 83.33%;
+  }
+  .col-lg-11 {
+    width: 91.66%;
+  }
+  .col-lg-12 {
+    width: 100%;
   }
 }

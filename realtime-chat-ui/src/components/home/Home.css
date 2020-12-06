@@ -1,16 +1,43 @@
-#home{
-    padding: 0.5rem;
-    text-align: center;
+#home {
+  padding: 0.5rem;
 }
-
+#home form {
+  padding: auto;
+}
 #home #app-name {
-    margin-top: 2rem;
+  text-align: center;
+  margin-top: 15%;
 }
 
-#home input[name=name] {
-    margin-top: 5rem;
-
+#home input {
+  width: 100%;
 }
-#home input[name=roomName] {
-    margin-top: 0.5rem;
+
+#home .name-input-group {
+  margin-top: 10%;
+}
+
+#home .room-name-input-group {
+  margin-top: 2%;
+}
+
+#home button {
+  margin-top: 2%;
+}
+
+#home footer {
+  position: absolute;
+  bottom: 1%;
+  left: 50%;
+}
+
+#home footer .footer-para {
+  position: relative;
+  left: -50%;
+}
+
+@media only screen and (min-width: 768px) {
+  #home footer {
+    bottom: 6%;
+  }
 }
