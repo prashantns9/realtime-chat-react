@@ -10,7 +10,6 @@
 }
 
 #home input {
-  width: 100%;
 }
 
 #home .name-input-group {
@@ -27,7 +26,7 @@
 
 #home footer {
   position: absolute;
-  bottom: 1%;
+  bottom: 5px;
   left: 50%;
 }
 
@@ -37,7 +36,4 @@
 }
 
 @media only screen and (min-width: 768px) {
-  #home footer {
-    bottom: 6%;
-  }
 }
