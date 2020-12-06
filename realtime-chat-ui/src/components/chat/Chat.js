@@ -123,6 +123,11 @@ function Chat() {
               placeholder="Enter your message"
               onChange={(e) => setUserInput(e.target.value)}
               autoComplete="off"
+              onKeyPress={(e) => {
+                if (e.which === 13 && userInput) {
+                  sendMessage(e.target.value);
+                }
+              }}
             />
           </div>
           <div className="col-2 text-right">
