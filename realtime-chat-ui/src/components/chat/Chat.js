@@ -6,7 +6,7 @@ import io from "socket.io-client";
 
 import "./Chat.css";
 
-const SERVER_URI = "http://localhost:5000";
+const SERVER_URI = "https://ps-realtime-chat-react.herokuapp.com";
 let socket;
 
 function Chat() {

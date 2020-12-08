@@ -7,7 +7,7 @@ import path from "path";
 
 const app = express();
 
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 3000;
 var CORS_OPTIONS;
 
 if (process.env.NODE_ENV !== "production") {
