@@ -2,7 +2,7 @@
   "name": "realtime-chat-server",
   "version": "1.0.0",
   "description": "Server side implementation for chat application",
-  "main": "index.js",
+  "main": "./dist/index.js",
   "scripts": {
     "tsc": "tsc",
     "dev": "ts-node-dev --respawn src/index.ts",
