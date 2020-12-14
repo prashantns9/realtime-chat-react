@@ -7,7 +7,7 @@ router.get("/api", (req, res) => {
   res.send("App is running");
 });
 
-router.get("/", (req, res) => {
+router.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "./../public", "index.html"));
 });
 export default router;

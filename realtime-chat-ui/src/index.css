@@ -72,6 +72,7 @@ footer {
 }
 
 .container {
+  position: relative;
   width: auto;
   height: 100vh;
   margin: auto;
